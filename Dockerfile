@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 
 
 MAINTAINER Marcin Matlag "marcin.matlag@gmail.com"
-EXPOSE 6669
+EXPOSE 16669
 
 user root
 
