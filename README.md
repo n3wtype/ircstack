@@ -2,9 +2,9 @@ IRCSTACK
 ========
 What's inside
 -------------
-* Based on Latest Ubuntu LTS
-* Latest ZNC from ppa:teward/znc launchpad repository
-* znc-palaver compiled buildtime from git repository
+* Based on Latest [Ubuntu LTS](http://www.ubuntu.com/)
+* Latest ZNC from [ppa:teward/znc](https://launchpad.net/~teward/+archive/ubuntu/znc) launchpad repository
+* znc-palaver compiled buildtime from [git repository](https://github.com/cocodelabs/znc-palaver)
 * Bitlbee
 * Bitlbee facebook-plugin from jgeboski repository
 * Services managed by supervisor

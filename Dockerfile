@@ -41,6 +41,7 @@ RUN apt-get install -y libssl-dev automake gettext g++ make git
 WORKDIR /root
 RUN git clone https://github.com/cocodelabs/znc-palaver.git
 WORKDIR /root/znc-palaver
+RUN git checkout `git describe --abbrev=0 --tags`
 RUN make
 RUN cp palaver.so /usr/lib/znc/palaver.so
 RUN apt-get purge -y libssl-dev automake gettext g++ make git
