@@ -12,7 +12,7 @@ What's inside
 How to make it run
 -------------------
 
-ZNC is running inside container on port 16669 as modern browsers prevent connections to the standard irc ports as security measure. All changing data is kept in **/var/ircstack**, that's the perfected directory to be mounted as docker volume. **Default credentials** to ZNC are **admin:admin**, of course it's user responsibility to change it as fast as possible. 
+ZNC is running inside container on port 16669 as modern browsers prevent connections to the standard irc ports as security measure. All changing data is kept in **/var/ircstack**, that's the perfected directory to be mounted as docker volume. **Default credentials** to ZNC are **admin:admin**, of course it's user responsibility to change it as fast as possible.
 
 ```bash
 docker pull newtype87/ircstack

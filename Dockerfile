@@ -20,7 +20,7 @@ RUN groupadd -g ${gid} ${group} \
 RUN chown ${user}:${group} "$IRC_HOME"
 VOLUME "$IRC_HOME"
 
-RUN apt-get update 
+RUN apt-get update
 RUN apt-get -y upgrade
 
 RUN apt-get install -y software-properties-common python-software-properties wget curl
@@ -33,7 +33,7 @@ RUN wget -O- https://code.bitlbee.org/debian/release.key | apt-key add -
 RUN wget -O- https://jgeboski.github.io/obs.key | apt-key add -
 
 RUN apt-get update
- 
+
 RUN apt-get install -y znc bitlbee  bitlbee-facebook znc-dev
 
 RUN apt-get install -y libssl-dev automake gettext g++ make git
@@ -68,4 +68,4 @@ WORKDIR "$IRC_HOME"
 USER ${user}
 
 CMD run.sh
-#ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"] 
+#ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
