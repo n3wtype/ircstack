@@ -2,9 +2,9 @@ IRCSTACK
 ========
 What's inside
 -------------
-* Based on Latest Ubuntu LTS
-* Latest ZNC from ppa:teward/znc launchpad repository
-* znc-palaver compiled buildtime from git repository
+* Based on Latest [Ubuntu LTS](http://www.ubuntu.com/)
+* Latest ZNC from [ppa:teward/znc](https://launchpad.net/~teward/+archive/ubuntu/znc) launchpad repository
+* znc-palaver compiled buildtime from [git repository](https://github.com/cocodelabs/znc-palaver)
 * Bitlbee
 * Bitlbee facebook-plugin from jgeboski repository
 * Services managed by supervisor
@@ -12,7 +12,7 @@ What's inside
 How to make it run
 -------------------
 
-ZNC is running inside container on port 16669 as modern browsers prevent connections to the standard irc ports as security measure. All changing data is kept in **/var/ircstack**, that's the perfected directory to be mounted as docker volume. **Default credentials** to ZNC are **admin:admin**, of course it's user responsibility to change it as fast as possible. 
+ZNC is running inside container on port 16669 as modern browsers prevent connections to the standard irc ports as security measure. All changing data is kept in **/var/ircstack**, that's the perfected directory to be mounted as docker volume. **Default credentials** to ZNC are **admin:admin**, of course it's user responsibility to change it as fast as possible.
 
 ```bash
 docker pull newtype87/ircstack
