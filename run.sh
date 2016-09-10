@@ -3,15 +3,19 @@
 USER="ircstack"
 GROUP="ircstack"
 
-if [ ! -d "$IRC_HOME/bitlbee/db" ]; then
-    echo "Creating bitlbee config dir"
-    mkdir -p "$IRC_HOME/bitlbee/db"
-fi
+if [ -z "$DISABLE_BITLBEE" ]; then
+  if [ ! -d "$IRC_HOME/bitlbee/db" ]; then
+      echo "Creating bitlbee config dir"
+      mkdir -p "$IRC_HOME/bitlbee/db"
+  fi
 
-if [ ! -f "$IRC_HOME/bitlbee/bitlbee.conf" ]; then
-    echo "Install default bitlbee configuration file"
-    cp /usr/local/ircstack/bitlbee.conf "$IRC_HOME/bitlbee/bitlbee.conf"
-fi  
+  if [ ! -f "$IRC_HOME/bitlbee/bitlbee.conf" ]; then
+      echo "Install default bitlbee configuration file"
+      cp /usr/local/ircstack/bitlbee.conf "$IRC_HOME/bitlbee/bitlbee.conf"
+  fi
+
+  mv /etc/supervisor/conf.d/{bitlbee.conf.disabled,bitlbee.conf}
+fi
 
 if [ ! -d "$IRC_HOME/znc/configs" ]; then
     echo "Create ZNC configuration dir"
@@ -28,6 +32,6 @@ if [ ! -f "$IRC_HOME/znc/configs/znc.conf" ]; then
     cp /usr/local/ircstack/znc.conf  "$IRC_HOME/znc/configs/znc.conf"
 fi
 
+mv /etc/supervisor/conf.d/{znc.conf.disabled,znc.conf}
 
-#znc -f -d "$IRC_HOME/znc" & bitlbee -v -I -n -u $USER -c "$IRC_HOME/bitlbee/bitlbee.conf" -d "$IRC_HOME/bitlbee" || exit 1 
-/usr/bin/supervisord -c /etc/supervisord.conf
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf

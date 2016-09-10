@@ -19,3 +19,10 @@ docker pull newtype87/ircstack
 docker volume create --name ircstack-data
 docker run --name ircstack -p 16669:16669  -v  ircstack-data:/var/ircstack newtype87/ircstack
 ```
+
+How to disable Bitlbee
+-----------------------
+```bash
+docker run --name ircstack -p 16669:16669 \
+ -e 'DISABLE_BITLBEE=true' \
+ -v  ircstack-data:/var/ircstack newtype87/ircstack```
