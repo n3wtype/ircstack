@@ -6,7 +6,7 @@ What's inside
 * Latest ZNC from [ppa:teward/znc](https://launchpad.net/~teward/+archive/ubuntu/znc) launchpad repository
 * znc-palaver compiled buildtime from [git repository](https://github.com/cocodelabs/znc-palaver)
 * Bitlbee
-* Bitlbee facebook-plugin from jgeboski repository
+* Bitlbee facebook-plugin from [jgeboski](https://jgeboski.github.io) repository
 * Services managed by supervisor
 
 How to make it run
