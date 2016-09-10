@@ -62,10 +62,13 @@ RUN apt-get install -y supervisor
 
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY supervisord.conf /etc/supervisord.conf
+COPY supervisord.conf /etc/supervisor/supervisord.conf
+
+COPY znc_supervisord.conf /etc/supervisor/conf.d/znc.conf.disabled
+COPY bitlbee_supervisord.conf /etc/supervisor/conf.d/bitlbee.conf.disabled
+RUN chown -R ${user}:${group} /etc/supervisor/conf.d
 
 WORKDIR "$IRC_HOME"
 USER ${user}
 
 CMD run.sh
-#ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
