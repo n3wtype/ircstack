@@ -38,12 +38,22 @@ RUN apt-get install -y znc bitlbee  bitlbee-facebook znc-dev
 
 RUN apt-get install -y libssl-dev automake gettext g++ make git
 
+#install znc-palaver
 WORKDIR /root
 RUN git clone https://github.com/cocodelabs/znc-palaver.git
 WORKDIR /root/znc-palaver
 RUN git checkout `git describe --abbrev=0 --tags`
 RUN make
 RUN cp palaver.so /usr/lib/znc/palaver.so
+
+#install znc playback
+WORKDIR /root
+RUN git clone https://github.com/jpnurmi/znc-playback.git
+WORKDIR /root/znc-playback
+RUN znc-buildmod playback.cpp 
+RUN cp playback.so /usr/lib/znc/playback.so
+
+
 RUN apt-get purge -y libssl-dev automake gettext g++ make git
 RUN rm -rf /root/znc-palaver
 
