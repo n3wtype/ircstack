@@ -63,6 +63,14 @@ RUN znc-buildmod clientbuffer.cpp
 RUN cp clientbuffer.so /usr/lib/znc/clientbuffer.so
 RUN rm -rf /root/znc-clientbuffer
 
+#install znc chanfilter
+WORKDIR /root
+RUN git clone https://github.com/jpnurmi/znc-chanfilter
+WORKDIR /root/znc-chanfilter
+RUN znc-buildmod chanfilter.cpp
+RUN cp chanfilter.so /usr/lib/znc/chanfilter.so
+RUN rm -rf /root/znc-chanfilter
+
 RUN apt-get purge -y libssl-dev automake gettext g++ make git
 
 COPY run.sh /usr/local/bin/run.sh
