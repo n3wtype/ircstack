@@ -45,6 +45,7 @@ WORKDIR /root/znc-palaver
 RUN git checkout `git describe --abbrev=0 --tags`
 RUN make
 RUN cp palaver.so /usr/lib/znc/palaver.so
+RUN rm -rf /root/znc-palaver
 
 #install znc playback
 WORKDIR /root
@@ -52,10 +53,17 @@ RUN git clone https://github.com/jpnurmi/znc-playback.git
 WORKDIR /root/znc-playback
 RUN znc-buildmod playback.cpp 
 RUN cp playback.so /usr/lib/znc/playback.so
+RUN rm -rf /root/znc-playback
 
+#install znc clientbuffer
+WORKDIR /root
+RUN git clone https://github.com/jpnurmi/znc-clientbuffer.git
+WORKDIR /root/znc-clientbuffer
+RUN znc-buildmod clientbuffer.cpp
+RUN cp clientbuffer.so /usr/lib/znc/clientbuffer.so
+RUN rm -rf /root/znc-clientbuffer
 
 RUN apt-get purge -y libssl-dev automake gettext g++ make git
-RUN rm -rf /root/znc-palaver
 
 COPY run.sh /usr/local/bin/run.sh
 RUN chmod +x /usr/local/bin/run.sh
