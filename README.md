@@ -7,6 +7,7 @@ What's inside
 * znc-palaver compiled buildtime from [git repository](https://github.com/cocodelabs/znc-palaver)
 * znc-playback compiled buildtime from [git repository](https://github.com/jpnurmi/znc-playback)
 * znc-clientbuffer compiled buildtime from [git repository](https://github.com/jpnurmi/znc-clientbuffer)
+* znc-chanfilter compiled buildtime from [git repository](https://github.com/jpnurmi/znc-chanfilter.git)
 * Bitlbee
 * Bitlbee facebook-plugin from [jgeboski](https://jgeboski.github.io) repository
 * Services managed by supervisor with tini as init process
