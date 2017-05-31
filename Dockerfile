@@ -86,7 +86,16 @@ COPY znc_supervisord.conf /etc/supervisor/conf.d/znc.conf.disabled
 COPY bitlbee_supervisord.conf /etc/supervisor/conf.d/bitlbee.conf.disabled
 RUN chown -R ${user}:${group} /etc/supervisor/conf.d
 
+ENV TINI_VERSION v0.14.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini.asc /tini.asc
+RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys 595E85A6B1B4779EA4DAAEC70B588DFF0527A9B7 \
+ && gpg --verify /tini.asc
+RUN chmod 500 /tini
+RUN chown ${user}:${group} /tini
+
 WORKDIR "$IRC_HOME"
 USER ${user}
 
-CMD run.sh
+
+ENTRYPOINT [ "/tini", "--", "/usr/local/bin/run.sh" ] 

@@ -34,4 +34,4 @@ fi
 
 mv /etc/supervisor/conf.d/{znc.conf.disabled,znc.conf}
 
-/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
