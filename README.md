@@ -9,7 +9,7 @@ What's inside
 * znc-clientbuffer compiled buildtime from [git repository](https://github.com/jpnurmi/znc-clientbuffer)
 * Bitlbee
 * Bitlbee facebook-plugin from [jgeboski](https://jgeboski.github.io) repository
-* Services managed by supervisor
+* Services managed by supervisor with tini as init process
 
 How to make it running
 -------------------
