@@ -92,7 +92,7 @@ COPY supervisord.conf /etc/supervisor/supervisord.conf
 
 COPY znc_supervisord.conf /etc/supervisor/conf.d/znc.conf.disabled
 COPY bitlbee_supervisord.conf /etc/supervisor/conf.d/bitlbee.conf.disabled
-RUN chown -R ${user}:${group} /etc/supervisor/conf.d
+RUN chown -R ${user}:${group} /etc/supervisor/
 
 ENV TINI_VERSION v0.14.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
